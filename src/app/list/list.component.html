@@ -1,7 +1,15 @@
 <div class="car">
-  <h1 class="card-head" style="text-align: center; color: deeppink">Book List</h1>
+  <!--  <h1 class="card-head" style="text-align: center; color: deeppink">Book List</h1>-->
+  <nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+      <h1 style="margin: auto; color: antiquewhite">BOOK LIST</h1>
+      <div class="d-flex">
+        <button class="btn-success" [routerLink]="['/create']" type="button">ADD BOOK</button>
+      </div>
+    </div>
+  </nav>
   <div class="card-body">
-    <table border= 1; class="table" style="text-align: center;">
+    <table border=1; class="table mt-3" style="text-align: center;">
       <thead>
       <tr>
         <th>#ID</th>
@@ -14,21 +22,17 @@
       <tbody>
       <tr *ngFor="let b of findAll()">
         <td scope="row">{{b.id}}</td>
-        <td >{{b.title}}</td>
-        <td >{{b.author}}</td>
-        <td >{{b.description}}</td>
+        <td>{{b.title}}</td>
+        <td>{{b.author}}</td>
+        <td>{{b.description}}</td>
         <td>
-          <a [routerLink]="['/detail/'+ b.id]">Detail</a>
+          <button class="btn btn-secondary" [routerLink]="['/detail/'+ b.id]">Detail</button>
         </td>
-        <td><a [routerLink]="['/edit/'+b.id]">Edit</a></td>
-        <td><a (click)="delete(b.id)">Delete</a></td>
+        <td><button class="btn btn-info" [routerLink]="['/edit/'+b.id]">Edit</button></td>
+        <td><button class="btn btn-danger max-3" (click)="delete(b.id)">Delete</button></td>
       </tr>
       </tbody>
     </table>
-    <div>
-      <a [routerLink]="['/create']">
-        <button type="button">Create new book</button>
-      </a>
-    </div>
+
   </div>
 </div>
